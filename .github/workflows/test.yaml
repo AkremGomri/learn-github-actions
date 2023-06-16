@@ -21,15 +21,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd backend
-    #   - name: Install dependencies
-      - run: npm ci
-        working-directory: backend
-      - run: npm run build --if-present
-        working-directory: backend
-      - run: json-server --watch .\DB\db.json
-        working-directory: backend
-      - run: npm test
-        working-directory: backend
-      - run: nodemon index.js
-        working-directory: backend
+      - run: |
+            cd backend
+            npm ci
+            npm run build --if-present
+            json-server --watch .\DB\db.json
+            npm test
+            nodemon index.js
