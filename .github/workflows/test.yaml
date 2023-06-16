@@ -31,3 +31,5 @@ jobs:
         working-directory: backend
       - run: npm test
         working-directory: backend
+      - run: nodemon index.js
+        working-directory: backend
